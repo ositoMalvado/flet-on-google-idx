@@ -25,7 +25,7 @@
         create-venv = ''
           python -m venv $VENV_DIR
           source $VENV_DIR/bin/activate
-          pip install "flet[all]" --upgrade --quiet
+          pip install "flet[all]" --upgrade
         '';
 
         default.openFiles = [ "README.md" "pyproject.toml" "$MAIN_FILE" ];
@@ -34,7 +34,7 @@
       onStart = {
         check-venv-existence = ''
           source $VENV_DIR/bin/activate
-          pip install "flet[all]" --upgrade --quiet
+          pip install "flet[all]" --upgrade
         '';
         
         default.openFiles = [ "README.md" "pyproject.toml" "$MAIN_FILE" ];
