@@ -25,10 +25,13 @@
         create-venv = ''
           python -m venv $VENV_DIR
           source $VENV_DIR/bin/activate
-          pip install "flet[all]" --upgrade
+          pip install uv
+          uv init
+          uv add "flet[all]" --upgrade
+          uv run flet create
         '';
 
-        default.openFiles = [ "README.md" "pyproject.toml" "$MAIN_FILE" ];
+        default.openFiles = [ pyproject.toml" "$MAIN_FILE" ];
       };
 
       onStart = {
@@ -37,7 +40,7 @@
           pip install "flet[all]" --upgrade
         '';
         
-        default.openFiles = [ "README.md" "pyproject.toml" "$MAIN_FILE" ];
+        default.openFiles = [ "pyproject.toml" "$MAIN_FILE" ];
       };
     };
 
